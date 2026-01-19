@@ -6,6 +6,7 @@ import {
   updatePersona,
   deletePersona,
   getHistorialPersona,
+  getConsulta2Persona,
 } from "../controllers/personas.controller.js";
 
 const router = Router();
@@ -23,6 +24,13 @@ router.get("/", getAllPersonas);
  * @access  Public
  */
 router.get("/:id", getPersonaById);
+
+/**
+ * @route   GET /api/personas/:id/consulta2
+ * @desc    Consulta 2 - Obtener pólizas con nombre, cantidad, fecha de compra y atributos del vehículo
+ * @access  Public
+ */
+router.get("/:id/consulta2", getConsulta2Persona);
 
 /**
  * @route   GET /api/personas/:id/historial
