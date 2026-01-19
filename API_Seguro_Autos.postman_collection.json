@@ -1,0 +1,371 @@
+{
+  "info": {
+    "name": "API Seguro de Autos",
+    "description": "Colección de endpoints para la API de seguros de autos",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "General",
+      "item": [
+        {
+          "name": "Home - Documentación",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": [""]
+            }
+          }
+        },
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/health",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["health"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Estadísticas",
+      "item": [
+        {
+          "name": "Resumen General",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/estadisticas/resumen",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "estadisticas", "resumen"]
+            }
+          }
+        },
+        {
+          "name": "Total de Accidentes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/estadisticas/accidentes/total",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "estadisticas", "accidentes", "total"]
+            }
+          }
+        },
+        {
+          "name": "Total de Infracciones",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/estadisticas/infracciones/total",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "estadisticas", "infracciones", "total"]
+            }
+          }
+        },
+        {
+          "name": "Horas con Más Accidentes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/estadisticas/accidentes/horas",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "estadisticas", "accidentes", "horas"]
+            }
+          }
+        },
+        {
+          "name": "Municipios con Más Accidentes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/estadisticas/accidentes/municipios",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "estadisticas", "accidentes", "municipios"]
+            }
+          }
+        },
+        {
+          "name": "Personas con Mayor Índice de Accidentes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/estadisticas/personas/mayor-indice?limit=10",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "estadisticas", "personas", "mayor-indice"],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Personas con Menor Índice de Accidentes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/estadisticas/personas/menor-indice?limit=10",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "estadisticas", "personas", "menor-indice"],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Personas",
+      "item": [
+        {
+          "name": "Listar Todas las Personas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/personas",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "personas"]
+            }
+          }
+        },
+        {
+          "name": "Obtener Persona por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/personas/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "personas", "1"]
+            }
+          }
+        },
+        {
+          "name": "Historial de Persona",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/personas/3/historial",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "personas", "3", "historial"]
+            }
+          }
+        },
+        {
+          "name": "Crear Nueva Persona",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"José Luis García Pérez\",\n  \"curp\": \"GAPJ900101HDFRRS01\",\n  \"telefono\": \"9991122334\",\n  \"email\": \"jose.garcia@example.com\",\n  \"fecha_nacimiento\": \"1990-01-01\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/personas",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "personas"]
+            }
+          }
+        },
+        {
+          "name": "Actualizar Persona",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"José Luis García Pérez (Actualizado)\",\n  \"curp\": \"GAPJ900101HDFRRS01\",\n  \"telefono\": \"9995544332\",\n  \"email\": \"jose.garcia.nuevo@example.com\",\n  \"fecha_nacimiento\": \"1990-01-01\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/personas/16",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "personas", "16"]
+            }
+          }
+        },
+        {
+          "name": "Eliminar Persona",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/personas/16",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "personas", "16"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Pólizas",
+      "item": [
+        {
+          "name": "Listar Todas las Pólizas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/polizas",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "polizas"]
+            }
+          }
+        },
+        {
+          "name": "Pólizas Activas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/polizas/activas",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "polizas", "activas"]
+            }
+          }
+        },
+        {
+          "name": "Obtener Póliza por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/polizas/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "polizas", "1"]
+            }
+          }
+        },
+        {
+          "name": "Crear Nueva Póliza",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"numero_poliza\": \"POL-2024-100\",\n  \"id_persona\": 1,\n  \"id_vehiculo\": 1,\n  \"cantidad_poliza\": 15000.00,\n  \"fecha_compra\": \"2024-05-01\",\n  \"fecha_inicio\": \"2024-06-01\",\n  \"fecha_fin\": \"2025-06-01\",\n  \"estatus\": \"Activa\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/polizas",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "polizas"]
+            }
+          }
+        },
+        {
+          "name": "Actualizar Póliza",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"numero_poliza\": \"POL-2024-100\",\n  \"id_persona\": 1,\n  \"id_vehiculo\": 1,\n  \"cantidad_poliza\": 16000.00,\n  \"fecha_compra\": \"2024-05-01\",\n  \"fecha_inicio\": \"2024-06-01\",\n  \"fecha_fin\": \"2025-06-01\",\n  \"estatus\": \"Activa\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/polizas/16",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "polizas", "16"]
+            }
+          }
+        },
+        {
+          "name": "Eliminar Póliza",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/polizas/16",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["api", "polizas", "16"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
