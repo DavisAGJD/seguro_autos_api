@@ -232,3 +232,64 @@ export const getHistorialPersona = async (req, res) => {
     });
   }
 };
+
+/**
+ * Consulta 2:
+ * Nombre de la persona
+ * Cantidad de la poliza
+ * Fecha de compra de la poliza
+ * Atributos del vehiculo
+ */
+export const getConsulta2Persona = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    // (Opcional) verificar que exista la persona
+    const [persona] = await pool.query(
+      "SELECT id_persona FROM personas WHERE id_persona = ?",
+      [id]
+    );
+
+    if (persona.length === 0) {
+      return res.status(404).json({
+        success: false,
+        message: "Persona no encontrada",
+      });
+    }
+
+    const [rows] = await pool.query(
+      `SELECT
+         pe.nombre AS nombre_persona,
+         po.cantidad_poliza,
+         po.fecha_compra,
+         v.vin,
+         v.placas,
+         v.marca,
+         v.modelo,
+         v.anio,
+         v.color,
+         v.tipo,
+         v.uso,
+         v.cilindros,
+         v.num_puertas
+       FROM polizas po
+       INNER JOIN personas pe ON pe.id_persona = po.id_persona
+       INNER JOIN vehiculos v ON v.id_vehiculo = po.id_vehiculo
+       WHERE po.id_persona = ?
+       ORDER BY po.fecha_compra DESC`,
+      [id]
+    );
+
+    res.json({
+      success: true,
+      data: rows,
+    });
+  } catch (error) {
+    console.error("Error en consulta 2:", error);
+    res.status(500).json({
+      success: false,
+      message: "Error al obtener la consulta 2",
+      error: error.message,
+    });
+  }
+};
