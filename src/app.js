@@ -53,7 +53,7 @@ app.use(requestLogger);
 app.get("/", (req, res) => {
   res.json({
     success: true,
-    message: "🚗 API de Seguro de Autos 🚗",
+    message: "API de Seguro de Autos",
     version: "1.0.0",
     endpoints: {
       estadisticas: "/api/estadisticas",
